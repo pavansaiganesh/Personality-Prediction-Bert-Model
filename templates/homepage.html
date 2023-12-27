@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Social BERTerfly</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <!--<link href="assets/img/favicon.png" rel="icon">-->
+  <link rel="apple-touch-icon" href="{{ url_for('static', filename='assets/img/apple-touch-icon.png')}}">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='assets/vendor/icofont/icofont.min.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='assets/vendor/boxicons/css/boxicons.min.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='assets/vendor/venobox/venobox.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='assets/vendor/remixicon/remixicon.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='assets/vendor/owl.carousel/assets/owl.carousel.min.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='assets/vendor/aos/aos.css')}}">
+
+
+  <!-- Template Main CSS File -->
+  <link rel="stylesheet" href ="{{ url_for('static', filename='assets/css/style.css')}}">
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center header-transparent">
+    <div class="container d-flex align-items-center">
+
+      <div class="logo mr-auto">
+        <h1 class="text-light"><a href="homepage.html"><span>Social BERTerfly</span></a></h1>
+      </div>
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="homepage.html">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="http://127.0.0.1:5000/tweet_pred">Get Started</a></li>
+
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- ======= Get Started Section ======= -->
+  <section id="hero">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7 pt-5 pt-lg-0 order-2 order-lg-1 d-flex align-items-center">
+          <div data-aos="zoom-out">
+            <h1>Get your MBTI Type with <span>Social BERTerfly</span></h1>
+            <div class="text-center text-lg-left">
+              <a href="#contact" class="btn-get-started scrollto">Get Started</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="300">
+          <img src="static/assets/img/myers.png" width='400' height='400'><!-- class="img-fluid animated" alt="" -->
+        </div>
+      </div>
+    </div>
+
+    <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
+      <defs>
+        <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z">
+      </defs>
+      <g class="wave1">
+        <use xlink:href="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)">
+      </g>
+      <g class="wave2">
+        <use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)">
+      </g>
+      <g class="wave3">
+        <use xlink:href="#wave-path" x="50" y="9" fill="#fff">
+      </g>
+    </svg>
+
+  </section><!-- End Get Started -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container-fluid">
+
+        <div class="row">
+          <div class="col-xl-5 col-lg-6 d-flex justify-content-center align-items-stretch" data-aos="fade-right">
+            <img src="static/assets/img/cogfunc.png" width='500' height='500'><!-- class="img-fluid animated" alt="" -->
+          </div>
+
+          <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5" data-aos="fade-left">
+            <h3>Get your personality type using your own social media!</h3>
+            <p>We'll predict your Myers-Briggs Type Indicator based off of your tweets. </p>
+
+            <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
+              <div class="icon"><i class="bx bx-fingerprint"></i></div>
+              <h4 class="title"><a href="">Overview</a></h4>
+              <p class="description">The Myers-Briggs Personality Indicator is one of the most accurate personality tests along with many others in scientific literature.</p>
+            </div>
+
+            <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
+              <div class="icon"><i class="bx bx-gift"></i></div>
+              <h4 class="title"><a href="">Details</a></h4>
+              <p class="description">There are 16 personality types based on four categories that the Myers-Briggs test assigns: introversion vs extroversion, sensing vs intuition, thinking vs feeling, and judging vs perceiving.</p>
+            </div>
+
+            <div class="icon-box" data-aos="zoom-in" data-aos-delay="300">
+              <div class="icon"><i class="bx bx-atom"></i></div>
+              <h4 class="title"><a href="">Method</a></h4>
+              <p class="description">This personality predictor uses BERT, a state-of-the-art natural language processing model developed by Google.</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="team">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Team</h2>
+          <p>Our Great Team</p>
+        </div>
+
+        <div class="row justify-content-md-center" data-aos="fade-left">
+
+          <div class="col-lg-3 col-md-5">
+            <div class="member" data-aos="zoom-in" data-aos-delay="100">
+              <div class="pic"><img src="https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/default-avatar-profile-picture-male-icon.png" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Ajay Kumar</h4>
+                <h4>20BQ1A0501</h4>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-5 mt-5 mt-md-0">
+            <div class="member" data-aos="zoom-in" data-aos-delay="200">
+              <div class="pic"><img src="https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/default-avatar-profile-picture-male-icon.png" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                  <h4>Pavan Sai</h4>
+                <h4>20BQ1A0537</h4>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-5 mt-5 mt-lg-0">
+            <div class="member" data-aos="zoom-in" data-aos-delay="300">
+              <div class="pic"><img src="https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/default-avatar-profile-picture-male-icon.png" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Gadde Jaswanth</h4>
+                  <h4>20BQ1A0555</h4>
+              </div>
+            </div>
+          </div>
+
+            <div class="col-lg-3 col-md-5 mt-5 mt-lg-0">
+            <div class="member" data-aos="zoom-in" data-aos-delay="300">
+              <div class="pic"><img src="https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/default-avatar-profile-picture-male-icon.png" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Dheeraj Kumar</h4>
+                  <h4>20BQ1A0521</h4>
+              </div>
+            </div>
+          </div>
+
+            
+        </div>
+
+      </div>
+    </section><!-- End Team Section -->
+
+    <!-- ======= Contact Section ======= --><!-- Remake into Get Started Form -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Get Started</h2>
+          <p>Input your Twitter Handle</p>
+        </div>
+
+        <div class="row justify-content-md-center">
+
+          <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left" data-aos-delay="200">
+
+            <!--<form action="forms/contact.php" method="post" role="form" class="php-email-form">-->
+              <form class="php-email-form">
+              <div class="form-row">
+                <div class="col-md-12 form-group">
+                  <input type="text" name="name" class="form-control" id="twitter_handle" placeholder="Your Twitter Handle"/>
+                </div>
+              </div>
+              <div style="text-align: center;">
+                <button style="display: inline-block;" onClick="mytweet()" type="submit">Submit</button>
+                <button style="display: inline-block;" type="submit" onClick="myres()">Go to Dashboard </button>
+              </div>
+              <br>
+              <div id="response" style='text-align: center;'></div>
+              <script>
+                function mytweet() {
+                  var text = document.getElementById('twitter_handle').value;
+                  console.log(text);
+                  const url = 'http://127.0.0.1:5000/tweet_pred';
+                  let send_data = JSON.stringify({
+                    'handle': text
+                  });
+                  let fetchData = {
+                    method: 'POST',
+                    // mode: 'cors',
+                    body: send_data,
+                    headers:  {
+                      'Accept': 'application/json',
+                      'Content-Type': 'application/json'
+                    }
+                  }
+                  console.log(fetchData);
+                  fetch(url, fetchData)
+                    .then(response => response.json())
+                      .then(user_type => {
+                        let  output = `
+                           <h3> ${user_type} </h3>
+                        `;
+                       
+                    document.getElementById("response").innerHTML = output; 
+                  });
+                }
+                function myres(){
+                  window.location.href = "http://127.0.0.1:5000/tweet_pred";
+                }          
+                function myfollowers() {
+                  var text = document.getElementById('twitter_handle').value;
+                  console.log(text);
+                  const url = 'http://127.0.0.1:5000/follow_pred';
+                  let send_data = JSON.stringify({
+                  'handle': text
+                  });
+                  let fetchData = {
+                    method: 'POST',
+                    // mode: 'cors',
+                    body: send_data,
+                    headers:  {
+                      'Accept': 'application/json',
+                      'Content-Type': 'application/json'
+                    }
+                  }
+                  fetch(url, fetchData)
+                    .then(response => response.json())
+                      .then(follow_pred => {
+                        let output = `<h3>${follow_pred["type"]}</h3>`;
+      document.getElementById("respons").innerHTML = output; 
+      document.getElementById("results").style.display = "block";
+    });
+  }  
+              </script>
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="static/assets/vendor/jquery/jquery.min.js"></script>
+  <script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="static/assets/vendor/php-email-form/validate.js"></script>
+  <script src="static/assets/vendor/venobox/venobox.min.js"></script>
+  <script src="static/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="static/assets/vendor/counterup/counterup.min.js"></script>
+  <script src="static/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="static/assets/vendor/aos/aos.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="static/assets/js/main.js"></script>
+
+  <!--Outside JS Files-->
+</body>
+
+</html>
