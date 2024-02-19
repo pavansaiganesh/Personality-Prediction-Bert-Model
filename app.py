@@ -3,7 +3,7 @@ from flask_cors import CORS
 from twitterscraper import tweet_return
 from predict_types import predict_type,recreate_model
 
-app = Flask(__name__, static_folder="static")
+app = Flask(__name__)
 CORS(app)
 
 
@@ -11,24 +11,12 @@ CORS(app)
 def home():
     return render_template('homepage.html')
 
-@app.route('/predict', methods=['GET', 'POST'])
-def testfn():
-    # GET request
-    if request.method == 'GET':
-        message = {'greeting':'Hello from Flask!'}
-        return jsonify(message)  # serialize and use JSON headers
-    # POST request
-    if request.method == 'POST':
-        data = request.get_json()  # parse as JSON
-        user_text = data["data"]
-        user_type = predict_type(user_text)
-        return jsonify({"type":str(user_type)}),200
-
 @app.route('/tweet_pred', methods=['GET', 'POST'])
 def tweet():
     # GET request
     if request.method == 'GET':
-        return render_template('dashboard.html')
+        message = {'greeting':'Hello from Flask!'}
+        return jsonify(message)
     # POST request
     if request.method == 'POST':
         data = request.get_json()  # parse as JSON
@@ -36,8 +24,8 @@ def tweet():
         tweets = tweet_return(user_handle)
         print("tweets :",tweets)
         user_type = predict_type(tweets)
-        print("Personality :",user_type)
-        return jsonify(user_type),200
+        print("Personality is: ",user_type)
+        return jsonify(user_type)
 
 
 
