@@ -87,13 +87,5 @@ def predict_type(text):
     result = ''.join(pred_axis)
     return result
 
-def predict_tweet(result):
-    op_json = {}
-    op_json["name"] = str(username)
-    op_json["type"] = result
-    info_df = pd.read_csv("reference_data/MBTI.csv")
-    op_json["traits"] = info_df[info_df["type"]==per_op]["traits"].values[0]
-    op_json["career"] = info_df[info_df["type"]==per_op]["career"].values[0]
-    op_json["people"] = info_df[info_df["type"]==per_op]["eminent personalities"].values[0]
-    op_json["per_name"] = info_df[info_df["type"]==per_op]["name"].values[0]
+
     
