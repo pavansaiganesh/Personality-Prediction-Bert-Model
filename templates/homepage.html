@@ -1,61 +1,268 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <title>FinalProject</title>
+    <meta charset="UTF-8">
+    <title>FinalProject</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e6e6e6; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px; 
+            text-align: center;
+            overflow: auto; 
+            position: relative;
+        }
+
+        h3{
+            color: #007bff;
+        }
+
+        p {
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+
+        form {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 300px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #response, #response2 {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            overflow: auto; 
+            max-height: 200px; 
+        }
+    </style>
 </head>
-
 <body>
-        <h3>Get your MBTI personality type using your twitter id</h3>
-        <h2>Our Team</h2>
+    
+    <div class="container">
+    <h3>Get your MBTI personality type using your Twitter ID</h3>
+    <h2>Our Team</h2>
+    
+    <div>
+        <h4>Ajay Kumar - 20BQ1A0501</h4>
+        <h4>Pavan Sai- 20BQ1A0537</h4>
+        <h4>Gadde Jaswanth - 20BQ1A0555</h4>
+        <h4>Dheeraj Kumar - 20BQ1A0521</h4>
+    </div>
+
+    <p>Input your Twitter Handle</p>
+    
+    <form id="myForm">
         <div>
-            <h4>Ajay Kumar - 20BQ1A0501</h4>
-            <h4>Pavan Sai- 20BQ1A0537</h4>
-            <h4>Gadde Jaswanth - 20BQ1A0555</h4>
-            <h4>Dheeraj Kumar - 20BQ1A0521</h4>
+            <input type="text" id="twitter_handle" name="twitter_handle" placeholder="Your Twitter Handle"/>
         </div>
+        <button type="submit">Submit</button>
+    </form>
 
-        <p>Input your Twitter Handle</p>
-
-        <form method="post">
-            <div>
-                <input type="text" id="twitter_handle" placeholder="Your Twitter Handle"/>
-            </div>
-            <button type="button" onClick="mytweet()">Submit</button>
-
-              <script>
-                function mytweet() {
-                   var text = document.getElementById('twitter_handle').value;
-                   console.log("hi guys");
-                   const url = 'http://127.0.0.1:5000/tweet_pred';
-                   let send_data = JSON.stringify({
-                      'handle': text
-                   });
-
-                   let fetchData = {
-                      method: 'POST',
-                      // mode: 'cors',
-                      body: send_data,
-                      headers: {
-                         'Accept': 'application/json',
-                         'Content-Type': 'application/json'
-                      }
-                   }
-
-                   console.log(fetchData);
-                  fetch(url, fetchData)
-                    .then(res => res.json())
-                      .then(user_type => {
-                        let  output = `<h3> ${user_type} </h3>`;
-                       
-                    document.getElementById("response").innerHTML = output; 
-                  });
-                }
-      
-              </script>
-            </form>
     <div id="response"></div>
+    <div id="response2"></div>
+    </div>
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            mytweet(); 
+        });
 
-    </body>
+        function mytweet() {
+            var text = document.getElementById('twitter_handle').value;
+            console.log("hi guys");
+            const url = 'http://127.0.0.1:5000/tweet_pred';
+            let send_data = JSON.stringify({
+                'handle': text
+            });
 
+            let fetchData = {
+                method: 'POST',
+                body: send_data,
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            }
+
+            fetch(url, fetchData)
+                .then(res => res.json())
+                .then(user_type => {
+                    let output = `<h3>${user_type}</h3>`;
+                    document.getElementById("response").innerHTML = output;
+
+                    // Process Excel data
+                    const excelData = [
+{
+"type": "ISTJ",
+"traits": "Systematic, Factual, Organized, Logical, Responsible",
+"career": "Military officer, Lawyer, Judge, Police Officer, Detective",
+"eminent personalities": "Henry Ford, Jeff Bezos, Julia Roberts, Natalie Portman",
+"name": "Logistician"
+},
+{
+"type": "ISFJ",
+"traits": "Warm, Detailed, Caring, Practical, Factual",
+"career": "Counselor, Human Resource, Manager, Interior Designer",
+"eminent personalities": "Jimmy Carter, Mother Teresa, Pope Francis, Tiger Woods",
+"name": "Defender"
+},
+{
+"type": "INFJ",
+"traits": "Visionary, Insightful, Creative, Sensitive, Persevering",
+"career": "Teacher, Social worker, Yoga instructor, Spiritual leader",
+"eminent personalities": "Taylor Swift, Adolf Hitler, Mahatma Gandhi, Carl Jung",
+"name": "Advocate"
+},
+{
+"type": "INTJ",
+"traits": "Visual-oriented, Innovative, Conceptual, Logical, Determined",
+"career": "Project Manager, Systems Engineer, Marketing Strategist, Systems Analyst, Military Strategist",
+"eminent personalities": "Isaac Newton, Nikola Tesla, John Nash, Stephen Hawking, Jay-Z",
+"name": "Architect"
+},
+{
+"type": "ISTP",
+"traits": "Analytical, Practical, Adaptable, Curious, Problem-Solver",
+"career": "Mechanic, Engineer, Graphic Designer, Forensic Scientist",
+"eminent personalities": "The Dalai Lama, Vladimir Putin, Bruce Lee, Tom Cruise",
+"name": "Virtuoso"
+},
+{
+"type": "ISFP",
+"traits": "Compassionate, Aesthetic, Spontaneous, Helpful, Idealistic",
+"career": "Artist, Musician, Photographer, Designer",
+"eminent personalities": "Michael Jackson, Steven Spielberg, David Beckham, Pablo Picasso",
+"name": "Adventurer"
+},
+{
+"type": "INFP",
+"traits": "Creative, Independent, Adaptable, Inquisitive, Caring",
+"career": "Writer, Bureaucrat, Social Worker, Psychologist, Teacher",
+"eminent personalities": "William Shakespeare, Vincent Van Gogh, Hellen Keller, John Mayer",
+"name": "Mediator"
+},
+{
+"type": "INTP",
+"traits": "Conceptual, Complex, Intellectual, Critical, Ingenious",
+"career": "Programmer, Computer Scientist, Web Developer, Composer, Economist, Scientist",
+"eminent personalities": "Larry Page, Albert Einstein, Charles Darwin, Abraham Lincoln, ",
+"name": "Logician"
+},
+{
+"type": "ESTP",
+"traits": "Adventurous, Pragmatic, Easygoing, Adaptable, Observant",
+"career": "Entrepreneur, Athlete, Police Officer, Paramedic, Soldier",
+"eminent personalities": "Ernest Hemingway, Jack Nicholson, Eddie Murphy, Madonna, ",
+"name": "Entrepreneur"
+},
+{
+"type": "ESFP",
+"traits": "Energetic, Sociable, Friendly, Generous, Fun-loving",
+"career": "Event Planner, Sales Representative, Tour Guide, Nurse, Consultant",
+"eminent personalities": "Elton John, Marilyn Monroe, Jamie Oliver, Adele, Jamie Foxx, Miley Cyrus",
+"name": "Entertainer"
+},
+{
+"type": "ENFP",
+"traits": "Enthusiastic, Imaginative, Creative, Playful, Optimistic",
+"career": "Diplomat, Journalist, Actor, Political Analyst ",
+"eminent personalities": "Robert Downey Jr, Robin Williams, Quentin Taratino, RM, Will Smith",
+"name": "Campaigner"
+},
+{
+"type": "ENTP",
+"traits": "Theoretical, Inventive, Abstract, Analytical, Complex",
+"career": "Lawyer, Psychologist, Scientist, System Analyst, Consultant",
+"eminent personalities": "Mark Twain, Tom Hanks, Thomas Edison, Celine Dion, ",
+"name": "Debater"
+},
+{
+"type": "ESTJ",
+"traits": "Assertive, Decisive, Concrete, Active-organizer, Practical",
+"career": "Manager, Judge, Forensic Expert, Doctor",
+"eminent personalities": "John Rockefeller, Judge Judy, Frank Sinatra, James Monroe",
+"name": "Executive"
+},
+{
+"type": "ESFJ",
+"traits": "Harmonizer, Caring, Empathic, Loyal, Cooperative",
+"career": "Optometrist, Office Manager, Corporate Trainer, Advertising Sales Agent",
+"eminent personalities": "Bill Clinton, Steve Harvey, Sally Field, Danny Glover",
+"name": "Consul"
+},
+{
+"type": "ENFJ",
+"traits": "Appreciative, Insightful, Tactful, Imaginative, Sociable",
+"career": "Guidance Counselor, Teacher, Sales Manager, Art Director",
+"eminent personalities": "Barack Obama, Ben Afflek, Alfred Adler, Abraham Maslow",
+"name": "Protagonist"
+},
+{
+"type": "ENTJ",
+"traits": "Planner, Organized, Strategist, Logical, Critical",
+"career": "Accountant, Budget Analyst, Financial Manager, Financial Analyst, Cost Estimator",
+"eminent personalities": "Harrison Ford, Margaret Thatcher, David Letterman, Franklin Roosevelt",
+"name": "Commander"
+}
+];
+
+                    // Find matching data for the user_type
+                    const matchingData = excelData.find(data => data.type === user_type);
+                    if (matchingData) {
+                        let output2 = `
+                            <h3>Type: ${matchingData.type}</h3>
+                            <p>Traits: ${matchingData.traits}</p>
+                            <p>Career: ${matchingData.career}</p>
+                            <p>Eminent Personalities: ${matchingData['eminent personalities']}</p>
+                            <p>Name: ${matchingData.name}</p>
+                        `;
+                        document.getElementById("response2").innerHTML = output2;
+                    } else {
+                        document.getElementById("response2").innerHTML = "<p>No matching data found.</p>";
+                    }
+                });
+        }
+    </script>
+    
+    <img src="static/myers.png" width='800' height='500'>
+</body>
 </html>
