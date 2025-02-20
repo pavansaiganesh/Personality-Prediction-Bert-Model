@@ -5,7 +5,7 @@ url = "https://twitter-v24.p.rapidapi.com/user/tweets"
 def tweet_return(username):
     querystring = {"username": username, "limit": "50"}  # Construct the querystring
     headers = {
-        "X-RapidAPI-Key": "fdba32988cmsh32050ad5d11e0cep1385fcjsncea5a1d350b6",
+        "X-RapidAPI-Key": "#insert your key here from rapid-api site",
         "X-RapidAPI-Host": "twitter-v24.p.rapidapi.com"
     }
 
